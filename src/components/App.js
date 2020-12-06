@@ -5,13 +5,19 @@ import React, { Component } from 'react';
 
 import Header from './Header'
 
-import CustomForm from './CustomizeStore'
+import MainForm from './MainForm'
 
 import Cart from './Cart'
+
+
+import FEATURES from './../STORE'
 
 import './App.css';
 
 class App extends Component {
+  static defaultProps = {
+    features: FEATURES
+  }
   state = {
     selected: {
       Processor: {
@@ -48,7 +54,7 @@ class App extends Component {
       <div className="App">
         <Header company='ELF Computing'/>
         <main>
-          <CustomForm features={this.props.features} data={this.state} update={this.updateFeature}/>
+          <MainForm features={this.props.features} data={this.state} update={this.updateFeature}/>
           <Cart data={this.state}/>
         </main>
       </div>
